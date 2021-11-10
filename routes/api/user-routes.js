@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const bcrypt = require('bcrypt');
 
 //Get /api/users
 router.get('/', (req, res) => {
@@ -52,6 +53,7 @@ router.post('/', (req, res) => {
 
 //PUT /api/users/1
 router.put('/:id', (req, res) => {
+    
     User.update(req.body, {
         where: {
             id: req.params.id
