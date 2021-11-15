@@ -1,8 +1,14 @@
 // import all models
+const homeRoutes = require('./home-routes.js');
+const router = require('express').Router();
 const Post = require('./Post');
 const User = require('./User');
 const Vote = require('./Vote');
 const Comment = require('./Comment');
+
+
+
+router.use('/', homeRoutes);
 
 // create associations
 User.hasMany(Post, {
